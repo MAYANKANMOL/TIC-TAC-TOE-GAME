@@ -42,6 +42,7 @@ int main()
     cout<<"enter the 2nd player name "<<" "<<endl;
     cin>>player2;
     char c1, c2;
+    srand(time(NULL));
     int temp = rand()%2;
     if(temp==0){
         cout<<player1<<" choose 0 or X ";
@@ -65,10 +66,17 @@ int main()
         if(playerswitch == 1){
             cout<<player1<<" "<<"enter the box location"<<endl;
             do{
-                cin>>row>>col;
+                int location;
+                cin>>location;
+                location=location-1;
+                row=location/3;
+                col=location%3;
                 while(row<0 || row>2 || col<0 || col>2){
                     cout<<"This location is INVALID"<<endl;
-                    cin>>row>>col;
+                    cin>>location;
+                    location=location-1;
+                    row=location/3;
+                    col=location%3;
                 }
                 if(grid[row][col]!=' '){
                     cout<<"This box is already used."<<endl;
@@ -79,10 +87,17 @@ int main()
         }else{
             cout<<player2<<" "<<"enter the box location"<<endl;
             do{
-                cin>>row>>col;
+                int location;
+                cin>>location;
+                location=location-1;
+                row=location/3;
+                col=location%3;
                 while(row<0 || row>2 || col<0 || col>2){
                     cout<<"This location is INVALID"<<endl;
-                    cin>>row>>col;
+                    cin>>location;
+                    location=location-1;
+                    row=location/3;
+                    col=location%3;
                 }
                 if(grid[row][col]!=' '){
                     cout<<"This box is already used."<<endl;
